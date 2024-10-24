@@ -7,25 +7,30 @@ public class Test {
                 new Item("Aged Brie", 10, 20),
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30),
                 new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-                new Item("Normal Item", 15, 10)
+                new Item("Normal Item", 15, 10),
+                new Item("Normal Item", 3, 6)  // Додатковий звичайний предмет для тестування
         };
 
-        // Створюємо об'єкт класу Main і передаємо йому масив items
-        Main main = new Main(items);
+        // Запускаємо тест на 10 днів
+        TestRunner testRunner = new TestRunner(items);
+        String actualOutput = testRunner.runTestFor10Days();
 
-        // Виводимо початковий стан об'єктів
-        System.out.println("Before updating quality:");
-        for (Item item : items) {
-            System.out.println(item);
-        }
+        // Отримуємо очікуваний результат
+        ExpOutput expected = new ExpOutput();
+        String expectedOutput = expected.getExpText();
 
-        // Оновлюємо якість та sellIn
-        main.updateQuality();
+        // Порівнюємо результати
+        TestComparator comparator = new TestComparator();
+        comparator.compareResults(actualOutput, expectedOutput);
+    }
+}
 
-        // Виводимо стан після оновлення
-        System.out.println("\nAfter updating quality:");
-        for (Item item : items) {
-            System.out.println(item);
+class TestComparator {
+    public void compareResults(String actualOutput, String expectedOutput) {
+        if (actualOutput.equals(expectedOutput)) {
+            System.out.println("Test passed!");
+        } else {
+            System.out.println("Test failed!");
         }
     }
 }
