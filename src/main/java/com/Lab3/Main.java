@@ -9,21 +9,25 @@ class Main {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            if (items[i].name.equals("Normal Item")
-                    && items[i].quality > 0) {
-                items[i].quality -=1;
+            if (items[i].name.equals("Normal Item") ) {
+                if (items[i].quality > 0) {
+                    items[i].quality -= 1;
+                }
+            }
+            if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (items[i].sellIn < 11) {
+                    items[i].quality += 1;
+                }
+                if (items[i].sellIn < 6) {
+                    items[i].quality += 1;
+                }
+            }
 
-            } else {
+
+
+            if (!items[i].name.equals("Normal Item")) {
                 if (items[i].quality < 50) {
-                    items[i].quality +=1 ;
-                    if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].sellIn < 11) {
-                            items[i].quality += 1;
-                        }
-                        if (items[i].sellIn < 6) {
-                            items[i].quality += 1;
-                        }
-                    }
+                    items[i].quality += 1;
                 }
             }
 
