@@ -8,15 +8,20 @@ class Main {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].name.equals("Normal Item")) {
-                updateNormalItem(items[i]);
-            } else if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                updateBackstagePass(items[i]);
-            } else if (items[i].name.equals("Aged Brie")) {
-                updateAgedBrie(items[i]);
+        for (Item item : items) {
+            switch (item.name) {
+                case "Normal Item":
+                    updateNormalItem(item);
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    updateBackstagePass(item);
+                    break;
+                case "Aged Brie":
+                    updateAgedBrie(item);
+                    break;
+                default:
+                    break;
             }
-
         }
     }
 
