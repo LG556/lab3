@@ -9,7 +9,10 @@ class Main {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            if (!items[i].name.equals("Aged Brie") && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert") && items[i].quality > 0 && !items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (!items[i].name.equals("Aged Brie")
+                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")
+                    && !items[i].name.equals("Sulfuras, Hand of Ragnaros")
+                    && items[i].quality > 0) {
                 items[i].quality -=1;
 
             } else {
@@ -18,15 +21,10 @@ class Main {
 
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality += 1;
-                            }
+                            items[i].quality += 1;
                         }
-
                         if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality += 1;
-                            }
+                            items[i].quality += 1;
                         }
                     }
                 }
