@@ -15,7 +15,9 @@ class TestRunner {
         for (int day = 0; day < 10; day++) {
             output.append("Day ").append(day).append(":\n");
             for (Item item : items) {
-                output.append(item).append("\n");
+                output.append(item.name).append(", ")
+                        .append(item.sellIn).append(", ")
+                        .append(item.quality).append("\n");
             }
             output.append("\n");
 
